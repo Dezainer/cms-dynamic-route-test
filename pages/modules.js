@@ -7,13 +7,14 @@ export default class Modules extends React.Component{
 	render(){
 
 		var userComps = modules[this.props.params.module].components;
-		console.log("Nome no Mongo: "+userComps);
 
 		var content = [];
 
 		for (var i = userComps.length - 1; i >= 0; i--) {
-			var Comp = components[userComps[i]];
-			content.push(<Comp/>);
+			var Comp = components[userComps[i].name];
+			var props = userComps[i].props;
+
+			content.push(<Comp {...props}/>);
 		}
 
 		return(

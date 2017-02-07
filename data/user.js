@@ -2,9 +2,27 @@ var modules = {
 	"Combo1": {
 		name: "Combo 1",
 		components: [
-			"Pao",
-			"Queijo",
-			"Salsicha"
+			{
+				name: "Pao",
+				props: {
+					one: "1",
+					two: "2"
+				}
+			},
+			{
+				name: "Queijo",
+				props: {
+					one: "1",
+					two: "2"
+				}
+			},
+			{
+				name: "Salsicha",
+				props: {
+					one: "1",
+					two: "2"
+				}
+			}
 		]
 	},
 	"Combo2": {

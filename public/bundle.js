@@ -26648,13 +26648,14 @@
 			value: function render() {
 
 				var userComps = _user2.default[this.props.params.module].components;
-				console.log("Nome no Mongo: " + userComps);
 
 				var content = [];
 
 				for (var i = userComps.length - 1; i >= 0; i--) {
-					var Comp = _components2.default[userComps[i]];
-					content.push(_react2.default.createElement(Comp, null));
+					var Comp = _components2.default[userComps[i].name];
+					var props = userComps[i].props;
+
+					content.push(_react2.default.createElement(Comp, props));
 				}
 
 				return _react2.default.createElement(
@@ -26682,7 +26683,25 @@
 	var modules = {
 		"Combo1": {
 			name: "Combo 1",
-			components: ["Pao", "Queijo", "Salsicha"]
+			components: [{
+				name: "Pao",
+				props: {
+					one: "1",
+					two: "2"
+				}
+			}, {
+				name: "Queijo",
+				props: {
+					one: "1",
+					two: "2"
+				}
+			}, {
+				name: "Salsicha",
+				props: {
+					one: "1",
+					two: "2"
+				}
+			}]
 		},
 		"Combo2": {
 			name: "Combo 2",
@@ -26875,7 +26894,10 @@
 				return _react2.default.createElement(
 					'span',
 					null,
-					'Componente P\xE3o'
+					'Componente P\xE3o ',
+					this.props.one,
+					' ',
+					this.props.two
 				);
 			}
 		}]);
@@ -26924,7 +26946,10 @@
 				return _react2.default.createElement(
 					'span',
 					null,
-					'Componente Queijo'
+					'Componente Queijo ',
+					this.props.one,
+					' ',
+					this.props.two
 				);
 			}
 		}]);
@@ -26973,7 +26998,10 @@
 				return _react2.default.createElement(
 					'span',
 					null,
-					'Componente Salsicha'
+					'Componente Salsicha ',
+					this.props.one,
+					' ',
+					this.props.two
 				);
 			}
 		}]);
